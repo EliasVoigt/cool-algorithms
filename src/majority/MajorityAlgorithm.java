@@ -1,6 +1,6 @@
-package algorithms.arrays;
+package majority;
 
-import algorithms.Algorithm;
+import core.Algorithm;
 
 import java.util.OptionalInt;
 

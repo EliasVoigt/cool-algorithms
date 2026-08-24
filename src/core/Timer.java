@@ -1,4 +1,4 @@
-package benchmarking;
+package core;
 
 public class Timer {
     private long startTime;
