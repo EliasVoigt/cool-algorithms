@@ -5,22 +5,22 @@ A collection of algorithms that I find interesting, implemented in Java and "ben
 ## Implemented Algorithms
 
 | Algorithm                      | Category | Complexity            |
-| ------------------------------ | -------- | --------------------- |
-| Majority Element (Boyer–Moore) | Arrays   | O(n) time, O(1) space |
+| ------------------------------ | -------- | ---------------------- |
+| Majority Element (Boyer–Moore) | Arrays   | O(n) time, O(1) space  |
 
 More algorithms will be added over time.
 
 ## Benchmarking
 
-The project includes a small benchmarking framework for measuring algorithm execution times.
+The project includes a small benchmarking framework for comparing multiple algorithms against the same problem.
 
 Each benchmark:
 
-* Generates inputs using an `InputGenerator`
-* Performs JVM warm-up iterations
-* Measures execution time in nanoseconds
-* Stores inputs and results
-* Reports minimum, maximum, and average execution time
+* Generates a shared set of inputs via a `Problem`, reused across every algorithm being compared
+* Performs JVM warm-up iterations on a separate set of generated inputs
+* Measures execution time in nanoseconds for each algorithm
+* Stores inputs and results per algorithm
+* Reports minimum, maximum, and average execution time per algorithm
 
 > These benchmarks are intended for a rough understanding and comparison rather than precise scientific performance measurements.
 
@@ -30,34 +30,34 @@ Each benchmark:
 src/
 └── main/
     └── java/
-        ├── algorithms/
+        ├── core/
         │   ├── Algorithm.java
-        │   └── arrays/
-        │       └── MajorityAlgorithm.java
-        │
-        ├── benchmarking/
+        │   ├── Problem.java
         │   ├── Benchmark.java
-        │   ├── Timer.java
-        │   └── arrays/
-        │       └── MajorityAlgorithmBenchmark.java
+        │   ├── ConsoleBenchmarkPrinter.java
+        │   └── Timer.java
         │
-        └── datastructures/
-            ├── InputGenerator.java
-            └── arrays/
-                └── RandomIntegerArrayGenerator.java
+        ├── datastructures/
+        │   ├── arrays/
+        │   │   └── RandomIntegerArrayGenerator.java
+        │
+        └── majority/
+            ├── MajorityAlgorithm.java
+            ├── MajorityProblem.java
+            └── MajorityBenchmark.java
 ```
 
-### `algorithms`
+### `core`
 
-Contains the algorithms and common abstractions used by them.
-
-### `benchmarking`
-
-Contains the benchmarking infrastructure used to execute and measure algorithms.
+Contains the common abstractions and infrastructure shared by every algorithm and benchmark: `Algorithm` (defines what it means to solve a problem), `Problem` (defines input generation, correctness checking, and formatting for a class of algorithms), `Benchmark` (runs one or more algorithms against shared generated inputs and collects timing data), `Timer`, and `ConsoleBenchmarkPrinter` (prints benchmark results to the console).
 
 ### `datastructures`
 
-Contains data structures and input generators used by the algorithms and benchmarks.
+Contains reusable data types and their input generators, organized by data kind (e.g. `arrays`). These are shared across any feature package that needs randomly generated sample input of that type.
+
+### Feature packages (e.g. `majority`)
+
+Each algorithmic problem gets its own package containing everything specific to it: the `Algorithm` implementation(s), the `Problem` definition (wiring up a generator from `datastructures` plus correctness/formatting logic), and a small runnable benchmark class. As more algorithms are added, each one will get its own package.
 
 ## Algorithms I still have in mind
 
