@@ -4,7 +4,7 @@ import core.Algorithm;
 
 import java.util.OptionalInt;
 
-public final class MajorityAlgorithm extends Algorithm<int[], OptionalInt> {
+public final class BoyerMooreVotingAlgorithm extends Algorithm<int[], OptionalInt> {
     @Override
     public OptionalInt apply(int[] arr) {
         if (arr.length == 0) {
@@ -35,7 +35,7 @@ public final class MajorityAlgorithm extends Algorithm<int[], OptionalInt> {
     }
 
     @Override
-    public String getName() {
-        return "Majority";
+    public String toString() {
+        return "Boyer-Moore Voting Algorithm";
     }
 }

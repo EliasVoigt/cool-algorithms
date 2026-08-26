@@ -25,5 +25,5 @@ public abstract class Algorithm<I, R> implements Function<I, R> {
      *
      * @return the algorithm name
      */
-    public abstract String getName();
+    public abstract String toString();
 }

@@ -1,19 +1,11 @@
 package datastructures.arrays;
 
+import datastructures.InputGenerator;
+
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * Generates random {@code int[]} arrays.
- *
- * <p>Configure the generator using the fluent methods and call
- * {@link #generateSample()} to generate an array.</p>
- *
- * <p>Standalone utility — not tied to {@code Problem} or {@code Benchmark}.
- * Compose it into a {@code Problem} implementation that needs randomly
- * generated {@code int[]} input.</p>
- */
-public class RandomIntegerArrayGenerator {
+public class RandomIntegerArrayGenerator extends InputGenerator<int[]> {
 
     private final Random random = new Random();
     private int length = -1;
@@ -44,7 +36,8 @@ public class RandomIntegerArrayGenerator {
         return this;
     }
 
-    public int[] generateSample() {
+    @Override
+    public int[] generateInput() {
         validate();
 
         int resolvedLength = resolveLength();
@@ -77,9 +70,7 @@ public class RandomIntegerArrayGenerator {
         if (minLength >= 0 && maxLength >= 0 && minLength > maxLength) {
             throw new IllegalArgumentException("minLength must not be larger than maxLength");
         }
-        if (minValue > maxValue) {
-            throw new IllegalArgumentException("minValue must not be larger than maxValue");
-        }
+        validateValueRange();
     }
 
     /**
@@ -90,5 +81,25 @@ public class RandomIntegerArrayGenerator {
      */
     public static String format(int[] input) {
         return Arrays.toString(input);
+    }
+
+    @Override
+    public int[] generateInput(int length) {
+        if (length < 0) {
+            throw new IllegalArgumentException("length must not be negative");
+        }
+        validateValueRange();
+
+        int[] result = new int[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = random.nextInt(minValue, maxValue + 1);
+        }
+        return result;
+    }
+
+    private void validateValueRange() {
+        if (minValue > maxValue) {
+            throw new IllegalArgumentException("minValue must not be larger than maxValue");
+        }
     }
 }

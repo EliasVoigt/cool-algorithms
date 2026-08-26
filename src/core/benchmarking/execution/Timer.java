@@ -1,4 +1,4 @@
-package core;
+package core.benchmarking.execution;
 
 public class Timer {
     private long startTime;
