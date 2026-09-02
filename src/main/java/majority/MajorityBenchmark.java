@@ -1,21 +1,21 @@
-package majority;
+package main.java.majority;
 
-import core.*;
-import core.benchmarking.execution.ScalingBenchmark;
-import core.benchmarking.execution.SingleSizeBenchmark;
-import core.benchmarking.results.ScalingResult;
-import core.benchmarking.results.SingleSizeResult;
-import core.benchmarking.visualization.ConsoleBenchmarkPrinter;
-import core.benchmarking.visualization.RuntimeChartApp;
-import datastructures.InputGenerator;
-import datastructures.arrays.RandomIntegerArrayGenerator;
+import main.java.core.Algorithm;
+import main.java.core.benchmarking.execution.ScalingBenchmark;
+import main.java.core.benchmarking.execution.SingleSizeBenchmark;
+import main.java.core.benchmarking.results.ScalingResult;
+import main.java.core.benchmarking.results.SingleSizeResult;
+import main.java.core.benchmarking.visualization.ConsoleBenchmarkPrinter;
+import main.java.core.benchmarking.visualization.RuntimeChartApp;
+import main.java.datastructures.InputGenerator;
+import main.java.datastructures.arrays.RandomIntegerArrayGenerator;
 
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class MajorityBenchmark {
-    public static void main(String[] args) {
+    static void main() {
         InputGenerator<int[]> generator = new RandomIntegerArrayGenerator()
                 .length(100)
                 .valueRange(1, 3);

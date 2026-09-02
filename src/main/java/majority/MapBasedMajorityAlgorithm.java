@@ -1,6 +1,6 @@
-package majority;
+package main.java.majority;
 
-import core.Algorithm;
+import main.java.core.Algorithm;
 
 import java.util.HashMap;
 import java.util.Map;

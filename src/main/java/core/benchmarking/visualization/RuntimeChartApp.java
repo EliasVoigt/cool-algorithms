@@ -1,7 +1,7 @@
-package core.benchmarking.visualization;
+package main.java.core.benchmarking.visualization;
 
-import core.Algorithm;
-import core.benchmarking.results.ScalingResult;
+import main.java.core.Algorithm;
+import main.java.core.benchmarking.results.ScalingResult;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;

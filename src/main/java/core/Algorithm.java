@@ -1,4 +1,4 @@
-package core;
+package main.java.core;
 
 import java.util.function.Function;
 

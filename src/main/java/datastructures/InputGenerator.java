@@ -1,4 +1,4 @@
-package datastructures;
+package main.java.datastructures;
 
 public abstract class InputGenerator<I> {
     public abstract I generateInput();

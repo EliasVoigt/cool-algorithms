@@ -1,7 +1,7 @@
-package core.benchmarking.visualization;
+package main.java.core.benchmarking.visualization;
 
-import core.Algorithm;
-import core.benchmarking.results.SingleSizeResult;
+import main.java.core.Algorithm;
+import main.java.core.benchmarking.results.SingleSizeResult;
 
 public class ConsoleBenchmarkPrinter {
     public static <I, R> void print(SingleSizeResult<I, R> result) {

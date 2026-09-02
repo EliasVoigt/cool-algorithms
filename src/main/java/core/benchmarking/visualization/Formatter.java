@@ -1,4 +1,4 @@
-package core.benchmarking.visualization;
+package main.java.core.benchmarking.visualization;
 
 import java.util.Arrays;
 import java.util.OptionalInt;

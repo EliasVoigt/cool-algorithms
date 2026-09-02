@@ -1,6 +1,6 @@
-package datastructures.arrays;
+package main.java.datastructures.arrays;
 
-import datastructures.InputGenerator;
+import main.java.datastructures.InputGenerator;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,8 +1,8 @@
-package core.benchmarking.execution;
+package main.java.core.benchmarking.execution;
 
-import core.Algorithm;
-import core.benchmarking.results.SingleSizeResult;
-import datastructures.InputGenerator;
+import main.java.core.Algorithm;
+import main.java.core.benchmarking.results.SingleSizeResult;
+import main.java.datastructures.InputGenerator;
 
 import java.util.LinkedHashMap;
 import java.util.List;

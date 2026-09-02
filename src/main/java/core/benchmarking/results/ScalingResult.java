@@ -1,6 +1,6 @@
-package core.benchmarking.results;
+package main.java.core.benchmarking.results;
 
-import core.Algorithm;
+import main.java.core.Algorithm;
 
 import java.util.Map;
 
